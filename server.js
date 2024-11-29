@@ -20,9 +20,7 @@ cloudinary.config({
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors({
-    origin: true
-}));
+app.use(cors());
 
 //////-----connection with database-----//////
 require("./database/conn");
