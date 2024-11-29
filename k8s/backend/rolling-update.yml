@@ -2,10 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: techdome-frontend-deployment
+  name: techdome-backend-deployment
   namespace: techdome
   labels:
-    app: techdome-frontend
+    app: techdome-backend
 spec:
   replicas: 2
   strategy:
@@ -15,18 +15,18 @@ spec:
       maxUnavailable: 25%
   selector:
     matchLabels:
-      app: techdome-frontend
+      app: techdome-backend
   template:
     metadata:
       labels:
-        app: techdome-frontend
+        app: techdome-backend
     spec:
       containers:
-      - name: techdome-frontend
+      - name: techdome-backend
         image: uj5ghare/techdome-backend:latest
         ports:
         - containerPort: 8000
         imagePullPolicy: Always
         env:
           - name: DB
-            value: "mongodb://mongodb-svc:27017/"
+            value: "mongodb://mongodb-svc:27017"
