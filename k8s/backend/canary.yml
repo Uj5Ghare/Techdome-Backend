@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: techdome-backend-deployment
+  name: techdome-backend-canary-deployment
   namespace: techdome
   labels:
     app: techdome-backend
@@ -36,4 +36,4 @@ spec:
           imagePullPolicy: Always
           env:
             - name: DB
-              value: "mongodb://mongodb-svc:27017/"
+              value: "mongodb://mongodb-svc:27017"
